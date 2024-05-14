@@ -1,0 +1,7 @@
+PUT http://localhost:3000/todos/6643112ec4b88f47fb2202d8 HTTP/1.1
+content-type: application/json
+
+{
+    "text": "updated by PUT request",
+    "done": false
+}
