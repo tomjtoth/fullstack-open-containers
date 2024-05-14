@@ -1,0 +1,93 @@
+Script started on 2024-05-14 15:02:33+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+]0;ttj@L450:~/Projects/fullstack-open-containers/script-answers[?2004h[ttj@L450 script-answers]$ docker ps
+[?2004lCONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS       PORTS                                         NAMES
+df18b84c3a1c   mongo     "docker-entrypoint.s…"   5 hours ago   Up 5 hours   0.0.0.0:3456->27017/tcp, :::3456->27017/tcp   todo-backend-mongo-1
+]0;ttj@L450:~/Projects/fullstack-open-containers/script-answers[?2004h[ttj@L450 script-answers]$ [K[ttj@L450 script-answers]$ [K[ttj@L450 script-answers]$ docker exec -i [7mtodo-backend-mongo-1[27mtodo-backend-mongo-1 /bash
+[?2004lOCI runtime exec failed: exec failed: unable to start container process: exec: "/bash": stat /bash: no such file or directory: unknown
+]0;ttj@L450:~/Projects/fullstack-open-containers/script-answers[?2004h[ttj@L450 script-answers]$ docker exec -i todo-backend-mongo-1 /bash[Cbashibashnbash/bash
+[?2004l^C
+]0;ttj@L450:~/Projects/fullstack-open-containers/script-answers[?2004h[ttj@L450 script-answers]$ docker exec -i todo-backend-mongo-1 /bin/bash[K[K[K[K[K[K[K[K[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cbsh[K[Kash
+[?2004l^C
+]0;ttj@L450:~/Projects/fullstack-open-containers/script-answers[?2004h[ttj@L450 script-answers]$ docker exec -i todo-backend-mongo-1 bash[K[K[K[K
+[?2004l"docker exec" requires at least 2 arguments.
+See 'docker exec --help'.
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+Execute a command in a running container
+]0;ttj@L450:~/Projects/fullstack-open-containers/script-answers[?2004h[ttj@L450 script-answers]$ docker exec -i todo-backend-mongo-1 /bin/sh
+[?2004l^C
+]0;ttj@L450:~/Projects/fullstack-open-containers/script-answers[?2004h[ttj@L450 script-answers]$ docker exec -i todo-backend-mongo-1 /bin/sh[Kbash[1@t
+[?2004l[?2004hroot@df18b84c3a1c:/# ls
+[?2004lbin  boot  data  dev  docker-entrypoint-initdb.d  etc  home  js-yaml.js  lib  lib32  lib64  libx32  media  mnt	opt  proc  root  run  sbin  srv  sys  tmp  usr	var
+[?2004hroot@df18b84c3a1c:/# mongosh -u root -p example
+[?2004l]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	66435325d650a0f23c2202d7
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.5[0m
+Using MongoDB:		7.0.9
+[1m[33mUsing Mongosh[0m:		2.2.5
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+[1G[0J [1G[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2024-05-14T07:22:23.415+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2024-05-14T07:22:25.297+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never' in this binary version
+   2024-05-14T07:22:25.298+00:00: vm.max_map_count is too low
+[1m[33m------[0m
+
+[1G[0Jtest> [7Gshow dbs
+[1madmin[0m         100.00 KiB
+[1mconfig[0m         72.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   56.00 KiB
+[1G[0Jtest> [7Guse the_database
+switched to db the_database
+[1G[0Jthe_database> [15Gshow collections
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.find({})
+[
+  {
+    _id: ObjectId([32m'6643112ec4b88f47fb2202d8'[39m),
+    text: [32m'updated by PUT request'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'6643112ec4b88f47fb2202d9'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gdb.todos.insertOne({}[1D[1G[0Jthe_database> db.todos.insertOne([44m{[49m}[35G[1G[0Jthe_database> db.todos.insertOne([44m{[49mt}[36G[1G[0Jthe_database> db.todos.insertOne([44m{[49mte}[37G[1G[0Jthe_database> db.todos.insertOne([44m{[49mtes}[38G[1G[0Jthe_database> db.todos.insertOne([44m{[49mtest}[39G[1G[0Jthe_database> db.todos.insertOne([44m{[49mtes}[38G[1G[0Jthe_database> db.todos.insertOne([44m{[49mte}[37G[1G[0Jthe_database> db.todos.insertOne([44m{[49mt}[36G[1G[0Jthe_database> db.todos.insertOne([44m{[49m}[35G[1G[0Jthe_database> db.todos.insertOne([44m{[49mt}[36G[1G[0Jthe_database> db.todos.insertOne([44m{[49mte}[37G[1G[0Jthe_database> db.todos.insertOne([44m{[49mtex}[38G[1G[0Jthe_database> db.todos.insertOne([44m{[49mtext}[39G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[33mtext[39m:}[40G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[33mtext[39m: }[41G[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"}[39m[42G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[33mtext[39m: [32m""[39m}[43G[1D[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [44m[32m"[49m"[39m}[42G[1D[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"[44m"[39m[49m}[41G[1D[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m""[39m}[40G[1D[1G[0Jthe_database> db.todos.insertOne({text[32m": "[39m[32m"}[39m[40G[1D[1G[0Jthe_database> db.todos.insertOne({text[32m": [44m"[39m[49m[32m"}[39m[39G[1D[1G[0Jthe_database> db.todos.insertOne({text[32m": "[39m[32m"}[39m[38G[1D[1D[1D[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m""[39m}[36G[1C[1C[1C[1C[1G[0Jthe_database> db.todos.insertOne({[44m[32m"[49mtext"[39m: [32m""[39m}[40G[1C[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m""[39m}[41G[1C[1C[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m"[44m"[39m[49m}[43G[1C[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49m"[39m}[44G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mI"[39m}[45G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIn"[39m}[46G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mInc"[39m}[47G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncr"[39m}[48G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncre"[39m}[49G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrea"[39m}[50G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncreas"[39m}[51G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease"[39m}[52G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease "[39m}[53G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease t"[39m}[54G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease th"[39m}[55G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the"[39m}[56G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the "[39m}[57G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the n"[39m}[58G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the nu"[39m}[59G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the num"[39m}[60G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the numb"[39m}[61G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the numbe"[39m}[62G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number"[39m}[63G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number "[39m}[64G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number o"[39m}[65G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of"[39m}[66G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of "[39m}[67G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of t"[39m}[68G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of to"[39m}[69G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of too"[39m}[70G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tool"[39m}[71G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools"[39m}[72G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools "[39m}[73G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools i"[39m}[74G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in"[39m}[75G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in "[39m}[76G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in m"[39m}[77G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in my"[39m}[78G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in my "[39m}[79G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in my t"[39m}[80G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in my to"[39m}[81G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in my too"[39m}[82G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in my tool"[39m}[83G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in my toolb"[39m}[84G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in my toolbe"[39m}[85G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in my toolbel"[39m}[86G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [44m[32m"[49mIncrease the number of tools in my toolbelt"[39m}[87G[1C[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m}[88G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m,}[89G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, }[90G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"}[39m[91G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"d}[39m[92G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"do}[39m[93G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"don}[39m[94G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done}[39m[95G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m}[96G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m:}[97G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m: }[98G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m: f}[99G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m: fa}[100G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m: fal}[101G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m: fals}[102G[1G[0Jthe_database> db.todos.insertOne([44m{[49m[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m: [33mfalse[39m}[103G[1C[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m: [33mfalse[39m}[104G)
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId([32m'664353ead650a0f23c2202d8'[39m)
+}
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m: [33mfalse[39m})[105G[1G[0Jthe_database> db.todos.find({})[32G
+[
+  {
+    _id: ObjectId([32m'6643112ec4b88f47fb2202d8'[39m),
+    text: [32m'updated by PUT request'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'6643112ec4b88f47fb2202d9'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'664353ead650a0f23c2202d8'[39m),
+    text: [32m'Increase the number of tools in my toolbelt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15G
+[?2004hroot@df18b84c3a1c:/# [?2004l
+exit
+]0;ttj@L450:~/Projects/fullstack-open-containers/script-answers[?2004h[ttj@L450 script-answers]$ [?2004l
+exit
+
+Script done on 2024-05-14 15:07:30+03:00 [COMMAND_EXIT_CODE="0"]
