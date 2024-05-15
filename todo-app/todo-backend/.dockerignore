@@ -1,3 +1,5 @@
 .dockerignore
 .gitignore
 README.md
+mongo_data
+redis_data
