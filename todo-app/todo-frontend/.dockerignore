@@ -3,4 +3,5 @@ node_modules/
 .gitignore
 .dockerignore
 README
-Dockerfile
+*Dockerfile
+docker-compose*.yml
